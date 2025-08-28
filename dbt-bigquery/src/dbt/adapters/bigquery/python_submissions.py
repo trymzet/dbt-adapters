@@ -209,7 +209,7 @@ class BigFramesHelper(_BigQueryPythonHelper):
         self._connection_method = credentials.method
         self._GoogleCredentials = create_google_credentials(credentials)
         self._notebook_client = create_notebook_client(self._GoogleCredentials, self._region)
-        self._notebook_template_id = parsed_model["config"].get("notebook_template_id")
+        self._notebook_template_id = parsed_model["config"].get("notebook_template_id") or credentials.notebook_template_id
         self._packages = parsed_model["config"].get("packages", [])
         retry = RetryFactory(credentials)
         self._polling_retry = retry.create_polling(

@@ -106,6 +106,8 @@ class BigQueryCredentials(Credentials):
         default=None,
     )
 
+    notebook_template_id: Optional[int] = None
+
     scopes: Optional[Tuple[str, ...]] = (
         "https://www.googleapis.com/auth/bigquery",
         "https://www.googleapis.com/auth/cloud-platform",
